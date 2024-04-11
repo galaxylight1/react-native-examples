@@ -1,12 +1,23 @@
-// import { Component } from "react";
+import { StatusBar } from "react-native";
 import CategoriesScreen from "./screens/CategoriesScreen";
-// import { StyleSheet, Text, View } from "react-native";
-// import { TabNavigator } from "@react-navigation/native";
-// import AuthScreen from "./screens/AuthScreen";
-// import WelcomeScreen from "./screens/WelcomeScreen";
+import MealsOverviewScreen from "./screens/MealsOverviewScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 
 function App() {
-  return <CategoriesScreen />;
+  return (
+    <>
+      <StatusBar hidden />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
+          <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
+  );
 }
 
 export default App;
