@@ -12,7 +12,18 @@ function App() {
       <StatusBar hidden />
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
+          <Stack.Screen
+            name="MealsCategories"
+            component={CategoriesScreen}
+            options={{
+              title: "All Categories",
+              headerStyle: {
+                backgroundColor: "purple",
+              },
+              headerTintColor: "white",
+              contentStyle: { backgroundColor: "lightgray" },
+            }}
+          />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
         </Stack.Navigator>
       </NavigationContainer>
