@@ -1,5 +1,5 @@
 import { MEALS } from "../data/dummyData";
-import { View, Text, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import MealItem from "../components/MealItem";
 
 function MealsOverviewScreen({ route }) {
@@ -10,7 +10,15 @@ function MealsOverviewScreen({ route }) {
   });
 
   function renderMealItem(itemData) {
-    return <MealItem title={itemData.item.title} />;
+    const item = itemData.item;
+    const mealItemsProp = {
+      title: item.title,
+      imgUrl: item.imageUrl,
+      duration: item.affordability,
+      complexity: item.complexity,
+      affordability: item.affordability,
+    };
+    return <MealItem {...mealItemsProp} />;
   }
 
   return (
